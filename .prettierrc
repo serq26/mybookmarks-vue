@@ -1,0 +1,9 @@
+{
+  "trailingComma": "all",
+  "singleQuote": true,
+  "semi": false,
+  "endOfLine": "auto",
+  "noTrailingSpaces": true,
+  "spaceBeforeFunctionParen": false,
+  "plugins": ["prettier-plugin-vue"]
+}
