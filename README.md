@@ -1,4 +1,7 @@
-# first-vue-project
+# mybookmarks-vue
+It is a web application that allows me to list and manage the content I have saved from different websites to review later, all in one place.
+
+# my-bookmarks-vue
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -27,7 +30,4 @@ npm run dev
 ```sh
 npm run build
 ```
-=======
-# mybookmarks-vue
-It is a web application that allows me to list and manage the content I have saved from different websites to review later, all in one place.
 
