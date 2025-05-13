@@ -10,27 +10,28 @@
 
 <style scoped>
 header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    color: white;
+    padding: 14px 20px;
     line-height: 1.5;
+    background: teal;
 }
 
-@media (min-width: 1024px) {
+header h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header a {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
     header {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 20px;
-        background: teal;
-        color: white;
-        padding: 14px 20px;
-    }
-
-    header h1 {
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    header a {
-        font-weight: bold;
+        margin-bottom: 20px;
     }
 }
 </style>

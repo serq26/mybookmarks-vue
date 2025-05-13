@@ -1,22 +1,23 @@
 <script setup>
 
- const props = defineProps({
-  selectedFilter: {
-    type: String,
-    required: true,
-  },
+const props = defineProps({
+    selectedFilter: {
+        type: String,
+        required: true,
+    },
 });
 const emit = defineEmits();
 
 const filterSelected = (data) => {
-  emit('update:filter', data);
+    emit('update:filter', data);
 }
 </script>
 
 <template>
     <div class="filter">
         <span class="filter-text">Filter: </span>
-        <v-btn-toggle class="toggle" v-bind:model-value="selectedFilter" @update:model-value="filterSelected" divided color="#008000">
+        <v-btn-toggle class="toggle" v-bind:model-value="selectedFilter" @update:model-value="filterSelected" divided
+            color="#008000">
             <v-btn value="all">
                 <v-icon start>
                     mdi-format-align-justify
@@ -58,23 +59,33 @@ const filterSelected = (data) => {
 </template>
 
 <style scoped>
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filter-text {
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.toggle button {
+    background: #111111;
+    color: white;
+    text-transform: none;
+    border-inline-end-color: white;
+}
+
+@media (max-width: 768px) {
     .filter {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+        display: block;
     }
 
-    .filter-text {
-        color: white;
-        font-weight: bold;
-        margin-right: 20px;
+    .toggle {
+        overflow: scroll;
     }
-
-    .toggle button {
-        background: #111111;
-        color: white;
-        text-transform: none;
-        border-inline-end-color: white;
-    }
+}
 </style>

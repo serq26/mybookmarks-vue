@@ -5,10 +5,10 @@ import Dialog from './Dialog.vue';
 import { showSnackbar } from '@/hooks/useSnackbar';
 
 const { data, isLoading, selectedFilter, refreshFlag } = defineProps({
-  data: Array,
-  selectedFilter: String,
-  isLoading: Boolean,
-  refreshFlag: Boolean
+    data: Array,
+    selectedFilter: String,
+    isLoading: Boolean,
+    refreshFlag: Boolean
 });
 const deleteTargetId = ref(null)
 const dialog = ref(false)
@@ -79,10 +79,8 @@ const handleConfirmDelete = async () => {
             <v-card class="bookmark-item" variant="outlined">
                 <a :href="bookmark.link" target="_blank" rel="noopener noreferrer">
                     <v-card-title class="bookmark-title-wrapper">
-                        {{ bookmark.title }}
-                        <div>
-                            <v-icon :icon="findIcon(bookmark.website)" class="title-icon" />
-                        </div>
+                        <div class="title-content">{{ bookmark.title }}</div>
+                        <v-icon :icon="findIcon(bookmark.website)" class="title-icon" />
                     </v-card-title>
                 </a>
                 <v-card-text>{{ bookmark.description }}</v-card-text>
@@ -106,51 +104,73 @@ const handleConfirmDelete = async () => {
 </template>
 
 <style lang="postcss" scoped>
-@media (min-width: 1024px) {
+.bookmark-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
 
-    .bookmark-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
+.bookmark-item {
+    margin: 16px 0;
+    border: none;
+    background: #111;
+    border-radius: 6px;
+    padding: 1rem;
 
-    .bookmark-item {
-        margin: 16px 0;
-        border: none;
-        background: #111;
-        border-radius: 6px;
-        padding: 1rem;
+    &:hover {
+        background: #2e3534;
 
-        &:hover {
-            background: #2e3534;
-
-            .title-icon {
-                transform: scale(1.2);
-                color: #45d5d5;
-            }
-        }
-    }
-
-    .bookmark-title-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        color: white
-    }
-
-    .title-icon {
-        transition: all .3s ease-in-out;
-
-        &:hover {
+        .title-icon {
             transform: scale(1.2);
             color: #45d5d5;
         }
     }
+}
 
-    .alert {
-        margin-top: 20px;
+.bookmark-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: white
+}
+
+.title-content {
+    font-weight: bold;
+    color: white;
+}
+
+.title-icon {
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.2);
+        color: #45d5d5;
+    }
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .bookmark-title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+
+    .title-content {
+        flex: 1;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .title-icon {
+        flex-shrink: 0;
+        margin-left: 8px;
     }
 }
 </style>
